@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello Vue.js</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <input v-model="message" placeholder="Type here">
+        <button @click="count">You clicked {{ counter }} times</button>
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue
+
+        createApp({
+            setup() {
+                const message = ref("Hello Vue.js, this is my first practice.")
+                const counter = ref(0)
+
+                function count() {
+                    counter.value++
+                }
+
+                return { message, counter, count }
+            }
+        }).mount("#app")
+    </script>
+</body>
+
+</html>
